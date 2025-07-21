@@ -12,6 +12,15 @@ import {
   loadCSS,
 } from './aem.js';
 
+const experimentationConfig = {
+  prodHost: 'www.my-site.com',
+  audiences: {
+    mobile: () => window.innerWidth < 600,
+    desktop: () => window.innerWidth >= 600,
+    // define your custom audiences here as needed
+  },
+};
+
 /**
  * Moves all the attributes from a given elmenet to another given element.
  * @param {Element} from the element to copy attributes from
@@ -92,6 +101,9 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
+  await runExperimentation(doc, experimentationConfig);
+
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
@@ -126,6 +138,8 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  await showExperimentationRail(doc, experimentationConfig);
 }
 
 /**
