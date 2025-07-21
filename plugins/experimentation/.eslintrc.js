@@ -1,35 +1,35 @@
 module.exports = {
   root: true,
-  extends: ["airbnb-base", "plugin:json/recommended"],
+  extends: ['airbnb-base', 'plugin:json/recommended'],
   env: {
     browser: true,
   },
-  parser: "@babel/eslint-parser",
+  parser: '@babel/eslint-parser',
   parserOptions: {
     allowImportExportEverywhere: true,
-    sourceType: "module",
+    sourceType: 'module',
     requireConfigFile: false,
   },
   rules: {
     // allow reassigning param
-    "no-param-reassign": [2, { props: false }],
-    "linebreak-style": ["error", "unix"],
-    "import/extensions": [
-      "error",
+    'no-param-reassign': [2, { props: false }],
+    'linebreak-style': ['error', 'unix'],
+    'import/extensions': [
+      'error',
       {
-        js: "always",
+        js: 'always',
       },
     ],
     // allow importing from these modules
-    "import/no-unresolved": [
-      "error",
+    'import/no-unresolved': [
+      'error',
       {
         ignore: [
-          "@playwright/test",
-          "monocart-coverage-reports",
-          "./lib-franklin.js",
-          "./cookie-consent/lib-cookie-consent.js",
-          "./analytics/lib-analytics.js",
+          '@playwright/test',
+          'monocart-coverage-reports',
+          './lib-franklin.js',
+          './cookie-consent/lib-cookie-consent.js',
+          './analytics/lib-analytics.js',
         ],
       },
     ],
