@@ -12,6 +12,11 @@ import {
   loadCSS,
 } from './aem.js';
 
+import {
+  runExperimentation,
+  showExperimentationRail,
+} from './experiment-loader.js';
+
 const experimentationConfig = {
   prodHost: 'www.my-site.com',
   audiences: {
